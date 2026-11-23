@@ -13,11 +13,13 @@ public class JenderDoc {
             return;
         }
 
-        String filename;
+        String filename, rdc;
         if (os.contains("linux")) {
             filename = "libjenderdoc.so";
+            rdc = "/usr/lib/librenderdoc.so";
         } else if (os.contains("win")) {
             filename = "jenderdoc.dll";
+            rdc = "C:\\Program Files\\RenderDoc\\renderdoc.dll";
         } else {
             return;
         }
@@ -33,6 +35,7 @@ public class JenderDoc {
             temp.toFile().deleteOnExit();
 
             System.load(temp.toAbsolutePath().toString());
+            System.load(rdc);
         } catch (Throwable ignore) {}
 
         RenderDoc.rd = createRenderDoc();

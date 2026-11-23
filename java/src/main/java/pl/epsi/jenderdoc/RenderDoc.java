@@ -40,7 +40,7 @@ public class RenderDoc {
         }
 
         @Override
-        public void close() throws Exception {
+        public void close() {
             JenderDoc.endCapture(rd);
         }
 
